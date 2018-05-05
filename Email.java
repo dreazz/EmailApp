@@ -12,6 +12,7 @@ public class Email {
 	private String department;
 	private String company;
 	private String password;
+	private  int passwordLength=8;
 	private int emailBoxCapacity;
 	private String alternateEmail;
 	
@@ -26,6 +27,7 @@ public class Email {
 		//Declaramos que department es igual a la clase setDepartment para poder acceder a el
 		this.department=setDepartment();
 		System.out.println("Department: "+this.department);
+		this.password=randomPassword(passwordLength);
 		
 		
 	}
@@ -44,5 +46,17 @@ public class Email {
 			return "";
 		}
 		
+	}
+	private String randomPassword(int length) {
+		String passwordSet="ABCDEFGHIJKLMNÑOPQRSTUVWXYZ1234567890@/()!";
+		char[] password=new char[length];
+		for(int i=0; i<length;i++) {
+			
+			int ran=(int) (Math.random()*passwordSet.length());
+			password[i]=passwordSet.charAt(ran);
+		}
+		System.out.println(password);
+		//convertimos password a String ya que tenia formato char y teniamos que devolver una String
+		return new String (password);
 	}
 }
