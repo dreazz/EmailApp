@@ -1,2 +1,0 @@
-# EmailApp
-EmailApp whit Java 
