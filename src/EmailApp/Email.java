@@ -64,4 +64,26 @@ public class Email {
 		//convertimos password a String ya que tenia formato char y teniamos que devolver una String
 		return new String (password);
 	}
-}
+	//set mail capacity 
+	public void mailCapacity(int capacity) {
+		this.emailBoxCapacity=capacity;
+	}
+	//Set alternate email
+	public void alternateEmail(String altEmail) {
+		this.alternateEmail=altEmail;
+	}
+	public void changePassword(String password) {
+		this.password=password;
+		
+	}
+	//Declarar los methodos get, serán los que utilizaremos para llamar los valores cambiados con los metodos set.
+	//todo esto es encapsulacion y data binding. 
+	public int getMailCapacity() {return emailBoxCapacity;	}
+	public String getAlternateEmail() {return alternateEmail;}
+	public String getPassword() {return password;}
+	
+
+
+
+
+} 
