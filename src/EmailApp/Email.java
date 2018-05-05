@@ -13,22 +13,27 @@ public class Email {
 	private String company;
 	private String password;
 	private  int passwordLength=8;
+	private String email;
 	private int emailBoxCapacity;
 	private String alternateEmail;
+	private String companyDomain;
 	
 	
 	
 	//Creating constructors 
 	//Constructor lastName and firstName
 	public Email(String firstName , String lastName) {
-		this.firstName=firstName;
-		this.lastName=lastName;
+		this.firstName=firstName.toLowerCase();
+		this.lastName=lastName.toLowerCase();
 		System.out.println("Email works: "+ this.firstName + this.lastName+"");
 		//Declaramos que department es igual a la clase setDepartment para poder acceder a el
-		this.department=setDepartment();
+		this.department=setDepartment().toLowerCase();
+		this.companyDomain="@"+this.department+"company.com";
 		System.out.println("Department: "+this.department);
 		this.password=randomPassword(passwordLength);
 		
+		this.email=this.firstName+this.lastName+this.companyDomain;
+		System.out.println(this.email);
 		
 	}
 
@@ -37,11 +42,11 @@ public class Email {
 		Scanner in= new Scanner(System.in);
 		int depChoice=in.nextInt();
 		if(depChoice == 1 ) {
-		return "Sales";
+		return "Sales.";
 		}else if(depChoice==2) {
-		return "Development";
+		return "Development.";
 		}else if(depChoice==3) {
-		return	"Accounting";
+		return	"Accounting.";
 		}else {
 			return "";
 		}
